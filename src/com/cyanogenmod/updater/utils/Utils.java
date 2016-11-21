@@ -117,18 +117,9 @@ public class Utils {
 
     public static int getUpdateType() {
         int updateType = Constants.UPDATE_TYPE_NIGHTLY;
-        try {
-            String cmReleaseType = SystemProperties.get(
-                    Constants.PROPERTY_CM_RELEASETYPE);
 
-            // Treat anything that is not SNAPSHOT as NIGHTLY
-            if (!cmReleaseType.isEmpty()) {
-                if (TextUtils.equals(cmReleaseType,
-                        Constants.CM_RELEASETYPE_SNAPSHOT)) {
-                    updateType = Constants.UPDATE_TYPE_SNAPSHOT;
-                }
-            }
-        } catch (RuntimeException ignored) {
+        if (SystemProperties.getBoolean("sys.update.test", false)) {
+            updateType = Constants.UPDATE_TYPE_SNAPSHOT;
         }
 
         return updateType;

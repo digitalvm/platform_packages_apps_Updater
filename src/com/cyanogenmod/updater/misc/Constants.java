@@ -36,8 +36,6 @@ public class Constants {
     public static final int UPDATE_TYPE_SNAPSHOT = 0;
     public static final int UPDATE_TYPE_NIGHTLY = 1;
 
-    // ro.cm.releasetype values
-    public static final String PROPERTY_CM_RELEASETYPE = "ro.cm.releasetype";
     public static final String CM_RELEASETYPE_SNAPSHOT = "SNAPSHOT";
     public static final String CM_RELEASETYPE_NIGHTLY = "NIGHTLY";
 }
