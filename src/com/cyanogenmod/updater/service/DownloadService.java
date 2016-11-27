@@ -113,6 +113,7 @@ public class DownloadService extends IntentService
 
     private JSONObject buildRequestBody(String sourceIncremental) throws JSONException {
         JSONObject body = new JSONObject();
+        body.put("device", Utils.getDeviceType());
         body.put("source_incremental", sourceIncremental);
         body.put("target_incremental", mInfo.getIncremental());
         return body;
