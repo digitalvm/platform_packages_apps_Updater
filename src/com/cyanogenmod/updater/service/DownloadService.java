@@ -128,7 +128,6 @@ public class DownloadService extends IntentService
             return new UpdateInfo.Builder()
                     .setFileName(obj.getString("filename"))
                     .setDownloadUrl(obj.getString("download_url"))
-                    .setMD5Sum(obj.getString("md5sum"))
                     .setType(UpdateInfo.Type.INCREMENTAL)
                     .setIncremental(obj.getString("incremental"))
                     .build();
@@ -169,7 +168,6 @@ public class DownloadService extends IntentService
         // Store in shared preferences
         mPrefs.edit()
                 .putLong(Constants.DOWNLOAD_ID, downloadId)
-                .putString(Constants.DOWNLOAD_MD5, incrementalUpdateInfo.getMD5Sum())
                 .putString(Constants.DOWNLOAD_INCREMENTAL_FOR, mInfo.getFileName())
                 .apply();
 
@@ -193,7 +191,6 @@ public class DownloadService extends IntentService
         // Store in shared preferences
         mPrefs.edit()
                 .putLong(Constants.DOWNLOAD_ID, downloadId)
-                .putString(Constants.DOWNLOAD_MD5, mInfo.getMD5Sum())
                 .apply();
 
         Utils.cancelNotification(this);

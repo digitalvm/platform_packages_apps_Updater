@@ -42,7 +42,6 @@ public class UpdateInfo implements Parcelable, Serializable {
     private long mBuildDate;
     private String mDownloadUrl;
     private String mChangelogUrl;
-    private String mMd5Sum;
     private String mIncremental;
 
     private Boolean mIsNewerThanInstalled;
@@ -85,13 +84,6 @@ public class UpdateInfo implements Parcelable, Serializable {
      */
     public Type getType() {
         return mType;
-    }
-
-   /**
-     * Get MD5
-     */
-    public String getMD5Sum() {
-        return mMd5Sum;
     }
 
     /**
@@ -170,7 +162,6 @@ public class UpdateInfo implements Parcelable, Serializable {
                 && mType.equals(ui.mType)
                 && mBuildDate == ui.mBuildDate
                 && TextUtils.equals(mDownloadUrl, ui.mDownloadUrl)
-                && TextUtils.equals(mMd5Sum, ui.mMd5Sum)
                 && TextUtils.equals(mIncremental, ui.mIncremental);
     }
 
@@ -196,7 +187,6 @@ public class UpdateInfo implements Parcelable, Serializable {
         out.writeString(mType.toString());
         out.writeLong(mBuildDate);
         out.writeString(mDownloadUrl);
-        out.writeString(mMd5Sum);
         out.writeString(mIncremental);
     }
 
@@ -206,7 +196,6 @@ public class UpdateInfo implements Parcelable, Serializable {
         mType = Enum.valueOf(Type.class, in.readString());
         mBuildDate = in.readLong();
         mDownloadUrl = in.readString();
-        mMd5Sum = in.readString();
         mIncremental = in.readString();
     }
 
@@ -217,7 +206,6 @@ public class UpdateInfo implements Parcelable, Serializable {
         private long mBuildDate;
         private String mDownloadUrl;
         private String mChangelogUrl;
-        private String mMd5Sum;
         private String mIncremental;
 
 
@@ -268,11 +256,6 @@ public class UpdateInfo implements Parcelable, Serializable {
             return this;
         }
 
-        public Builder setMD5Sum(String md5Sum) {
-            mMd5Sum = md5Sum;
-            return this;
-        }
-
         public Builder setIncremental(String incremental) {
             mIncremental = incremental;
             return this;
@@ -286,7 +269,6 @@ public class UpdateInfo implements Parcelable, Serializable {
             info.mBuildDate = mBuildDate;
             info.mDownloadUrl = mDownloadUrl;
             info.mChangelogUrl = mChangelogUrl;
-            info.mMd5Sum = mMd5Sum;
             info.mIncremental = mIncremental;
             return info;
         }
