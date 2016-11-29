@@ -129,7 +129,6 @@ public class DownloadService extends IntentService
                     .setFileName(obj.getString("filename"))
                     .setDownloadUrl(obj.getString("download_url"))
                     .setMD5Sum(obj.getString("md5sum"))
-                    .setBuildDate(obj.getLong("date_created_unix"))
                     .setType(UpdateInfo.Type.INCREMENTAL)
                     .setIncremental(obj.getString("incremental"))
                     .build();
