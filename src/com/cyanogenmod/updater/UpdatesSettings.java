@@ -628,7 +628,7 @@ public class UpdatesSettings extends PreferenceActivity implements
 
             // Check to see if there is an incremental
             boolean haveIncremental = false;
-            String incrementalFile = "incremental-" + installedIncremental + "-"
+            String incrementalFile = Utils.getDeviceType() + "-incremental-" + installedIncremental + "-"
                     + ui.getIncremental() + ".zip";
             if (updatesMap.containsKey(incrementalFile)) {
                 haveIncremental = true;

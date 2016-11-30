@@ -24,7 +24,7 @@ import java.util.regex.Pattern;
 public class UpdateInfo implements Parcelable, Serializable {
     private static final long serialVersionUID = 5499890003569313403L;
     private static final Pattern sIncrementalPattern =
-            Pattern.compile("^incremental-(.*)-(.*).zip$");
+            Pattern.compile("(.*)-incremental-(.*)-(.*).zip$");
 
     public static final String CHANGELOG_EXTENSION = ".changelog.html";
 

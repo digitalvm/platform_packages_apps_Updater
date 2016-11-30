@@ -160,7 +160,7 @@ public class DownloadService extends IntentService
         // stripped off when the download completes
         String sourceIncremental = Utils.getIncremental();
         String targetIncremental = mInfo.getIncremental();
-        String fileName = "incremental-" + sourceIncremental + "-" + targetIncremental + ".zip";
+        String fileName = Utils.getDeviceType() + "-incremental-" + sourceIncremental + "-" + targetIncremental + ".zip";
         String incrementalFilePath = "file://" + getUpdateDirectory().getAbsolutePath() + "/" + fileName + ".partial";
 
         long downloadId = enqueueDownload(incrementalUpdateInfo.getDownloadUrl(), incrementalFilePath);
